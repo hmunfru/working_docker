@@ -1,0 +1,12 @@
+$ mkdir mydocker
+$ cd mydocker
+$ vi Dockerfile
+
+Dockerfile content
+
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install -y wget
+
+docker build –t my_image .
+

@@ -1,0 +1,36 @@
+## Running a container
+$ docker run ubuntu echo hello world
+
+## Running a container interactively
+
+$ docker run -it ubuntu bash  
+root@04c0bb0a6c07:/#
+
+root@04c0bb0a6c07:/# curl ifconfig.me/ip  
+bash: curl: command not found
+root@04c0bb0a6c07:/# dpkg -l | wc -l 
+101
+
+root@04c0bb0a6c07:/# apt-get update && apt-get install -y curl
+root@04c0bb0a6c07:/# curl ifconfig.me/ip  
+root@04c0bb0a6c07:/# exit
+
+## Runnning a not interactive container
+docker run jpetazzo/clock
+
+docker run -d jpetazzo/clock  
+
+docker ps
+docker ps -q
+docker ps -l 
+docker logs IDclock
+docker top IDclock
+docker stop IDclock
+docker start IDclock
+docker kill IDclock
+docker rm IDclock
+
+docker run -d tomcat
+docker exec -it IDtomcat  bash
+
+

@@ -1,0 +1,10 @@
+## deploying with exposed ports
+docker run -d -P jpetazzo/web  
+
+docker ps
+
+docker port ID
+
+docker run -t -p 80:8000 jpetazzo/web
+
+

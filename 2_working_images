@@ -1,0 +1,25 @@
+## listing images
+docker images
+
+## search images
+docker search zookeeper
+
+## Download
+docker pull debian:jessie  
+
+## Creating a new image
+docker run -ti ubuntu bash
+root@25ec55c2d76b:/# apt-get update && apt-get install -y wget
+Get:1 http://archive.ubuntu.com/ubuntu xenial InRelease [247 kB]
+Get:2 http://archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+
+See the differences
+
+$docker diff 25ec
+/root/.bash_history  C /tmp
+C /usr
+C /usr/bin
+
+docker commit 25ec55c2d76b
+docker run -ti 3b8b3e2b bash
+
