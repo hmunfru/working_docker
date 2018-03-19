@@ -25,6 +25,11 @@ docker ps -q
 docker ps -l 
 docker logs IDclock
 docker top IDclock
+
+## Two ways to terminate the detached container.
+## docker kill: stops the containers by KILL signal
+## docker stop: sends TERM signal (and KILL signal if not stopped after 10 seg)
+
 docker stop IDclock
 docker start IDclock
 docker kill IDclock
@@ -32,5 +37,19 @@ docker rm IDclock
 
 docker run -d tomcat
 docker exec -it IDtomcat  bash
+
+## Killing and removing all containers
+docker ps -aq|xargs docker kill
+docker ps -aq|xargs docker rm -v
+
+# Exercise
+
+## Download the image yjjy0921/redhat7.2
+
+## Run the contanair
+
+## Create a file and go out of the contanair
+## Restart the contanair to check the changes are still there
+
 
 

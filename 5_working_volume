@@ -1,0 +1,34 @@
+## volumen shared among containers
+
+$ docker run -it --name alpha -v /var/log ubuntu bash
+$ root@9e21f27d0581:/# date > /var/log/now
+
+$ docker run --volumes-from alpha ubuntu cat /var/log/now  
+
+## list volumes
+docker volume ls
+
+## inspect volume
+docker inspect volume_name
+
+## "Mountpoint": "/var/lib/docker/volumes/
+
+
+## sharing dictory volume - host
+$ mkdir myvol
+$ docker run -d --name devtest --volume  $(pwd)/myvol:/app nginx
+f82dc11a0cff737b4cc5fd4ff3a0fefa39c40e9200abd36d7af9615c1df74490
+
+$ docker exec -ti f82 bash
+root@f82dc11a0cff:/# ls /app
+root@f82dc11a0cff:/# date > /app/a
+root@f82dc11a0cff:/# exit
+
+$ ls myvol
+a
+
+## read-only
+$docker run -d --name devtest2 --volume  $(pwd)/myvol:/app:ro nginx
+root@5cd1b8f628bc:/# cd /app 
+root@5cd1b8f628bc:/app# date > a
+bash: a: Read-only file system

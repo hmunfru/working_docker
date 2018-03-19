@@ -5,11 +5,11 @@ docker images
 docker search zookeeper
 
 ## Download
-docker pull debian:jessie  
+docker pull ubuntu
 
 ## Creating a new image
 docker run -ti ubuntu bash
-root@25ec55c2d76b:/# apt-get update && apt-get install -y wget
+root@25ec55c2d76b:/# apt-get update && apt-get install -y curl
 Get:1 http://archive.ubuntu.com/ubuntu xenial InRelease [247 kB]
 Get:2 http://archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
 
@@ -21,5 +21,6 @@ C /usr
 C /usr/bin
 
 docker commit 25ec55c2d76b
-docker run -ti 3b8b3e2b bash
+sha256:f1194d2ce0
+docker run -ti f1194d2ce0 bash
 
