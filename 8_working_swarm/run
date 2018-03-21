@@ -1,0 +1,23 @@
+## examine swarm. docker nodes
+docker info
+docker node ls
+
+## docker services
+## Run on any manager node
+## service create, deploy a service to the Swarm
+##  --replicas 1, run only one task on the collection of workers
+##  --name, name our service stash
+## logstash, the name of our container to base the service on
+## Omitting the tag will default to :latest
+docker service create --replicas 1 --name  web nginx 
+# list services
+docker service ls
+# check service contaniners
+docker service ps <servicename>
+
+#update service with more replicas
+docker service update --replicas=5 web
+
+## docker stacks
+docker stack ls
+docker stack deploy --compose-file docker-compose-replicas.yml mystack

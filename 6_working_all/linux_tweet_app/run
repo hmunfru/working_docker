@@ -1,3 +1,5 @@
+## create a user in dockerhub
+
 export DOCKERID=hmunfru
 echo $DOCKERID
 docker image build --tag $DOCKERID/linux_tweet_app:1.0 .

@@ -1,0 +1,12 @@
+## running several containers
+docker-compose -f 1_docker-compose-several-containers.yml up -d build
+docker-compose -f 1_docker-compose-several-containers.yml up -d
+
+## creating a networkin
+## https://docs.docker.com/network/#network-drivers
+docker-compose -f 2_docker-compose-networks.yml up -d
+
+## volume
+docker-compose -f 3_docker-compose_volume_ports.yml up -d
+docker volume ls
+docker-compose -f 3_docker-compose_volume_ports.yml down -v
