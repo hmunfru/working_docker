@@ -18,6 +18,9 @@ docker service ps <servicename>
 #update service with more replicas
 docker service update --replicas=5 web
 
+#remove service
+docker rm web
+
 ## docker stacks
 docker stack ls
 docker stack deploy --compose-file docker-compose-replicas.yml mystack

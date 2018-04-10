@@ -8,10 +8,4 @@ services:
      POSTGRES_PASSWORD: 123456
      POSTGRES_USER: postgres
   web:
-    build: .
-    ports:
-     - "80:7777"
-    depends_on:
-      - postgres
-      - redis
-    command: ["npm", "start"]
+    image: tomcat
